@@ -1,29 +1,15 @@
 <!doctype html>
 <meta charset="utf-8">
-<link rel="stylesheet" href="{{ '/static/style.css'|url }}">
+<!-- <link rel="stylesheet" href="{{ '/static/style.css'|url }}"> -->
+<link rel="stylesheet" href="{{ '/static/bootstrap.css'|url }}">
 <title>{% block title %}Welcome{% endblock %} — blog</title>
 <body>
-  <header>
-    <h1>blog</h1>
-    <nav>
-      <ul class="nav navbar-nav">
-        <li{% if this._path == '/' %} class="active"{% endif
-          %}><a href="{{ '/'|url }}">Welcome</a></li>
-        {% for href, title in [
-          ['/blog', 'Blog'],
-          ['/projects', 'Projects'],
-          ['/about', 'About']
-        ] %}
-          <li{% if this.is_child_of(href) %} class="active"{% endif
-            %}><a href="{{ href|url }}">{{ title }}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>
-  </header>
-  <div class="page">
+      <nav class="navbar navbar-inverse">
+            <a class="navbar-brand" href="/">Home</a>
+            <a class="navbar-brand" href="/about">Sobre</a>
+            <a class="navbar-brand" href="/blog">Blog</a>
+         </nav>
+   <div class="jumbotron" align="center">
     {% block body %}{% endblock %}
   </div>
-  <footer>
-    &copy; Copyright 2017 by Eduardo Mendes.
-  </footer>
 </body>
